@@ -21,19 +21,16 @@
 * SOFTWARE.
 */
 
-import 'authentication_data.dart';
+import 'authentication_identifier.dart';
 import 'authentication_types.dart';
 
-class AuthenticationJwtToken extends AuthenticationData {
+class AuthenticationJwtTokenIdentifier extends AuthenticationIdentifier {
   String token;
 
-  AuthenticationJwtToken({String? session, required this.token})
-      : super(
-          type: AuthenticationTypes.jwtToken,
-          session: session,
-        );
+  AuthenticationJwtTokenIdentifier({required this.token})
+      : super(type: AuthenticationIdentifierTypes.userId);
 
-  AuthenticationJwtToken.fromJson(Map<String, Object?> json)
+  AuthenticationJwtTokenIdentifier.fromJson(Map<String, Object?> json)
       : token = json['token'] as String,
         super.fromJson(json);
 
