@@ -329,6 +329,7 @@ extension LoginTypeEnhancedEnum on LoginType {
   T when<T>({
     required T Function() mLoginPassword,
     required T Function() mLoginToken,
+    required T Function() mLoginJwtToken,
   }) =>
       {
         LoginType.mLoginPassword: mLoginPassword,
@@ -338,6 +339,7 @@ extension LoginTypeEnhancedEnum on LoginType {
   T maybeWhen<T>({
     T? Function()? mLoginPassword,
     T? Function()? mLoginToken,
+    T? Function()? mLoginJwtToken,
     required T Function() orElse,
   }) =>
       {
