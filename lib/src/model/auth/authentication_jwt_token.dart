@@ -1,6 +1,6 @@
 /* MIT License
 * 
-* Copyright (C) 2019, 2020, 2021 Famedly GmbH
+* Copyright (C) 2019, 2020, 2021 Famedly GmbH & Quan Pham
 * 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,26 @@
 * SOFTWARE.
 */
 
-abstract class AuthenticationTypes {
-  static const String password = 'm.login.password';
-  static const String recaptcha = 'm.login.recaptcha';
-  static const String token = 'm.login.token';
-  static const String oauth2 = 'm.login.oauth2';
-  static const String sso = 'm.login.sso';
-  static const String emailIdentity = 'm.login.email.identity';
-  static const String msisdn = 'm.login.msisdn';
-  static const String dummy = 'm.login.dummy';
-  static const String jwtToken = 'org.matrix.login.jwt';
-}
+import 'authentication_data.dart';
+import 'authentication_types.dart';
 
-abstract class AuthenticationIdentifierTypes {
-  static const String userId = 'm.id.user';
-  static const String thirdParty = 'm.id.thirdparty';
-  static const String phone = 'm.id.phone';
+class AuthenticationJwtToken extends AuthenticationData {
+  String token;
+
+  AuthenticationJwtToken({String? session, required this.token})
+      : super(
+          type: AuthenticationTypes.jwtToken,
+          session: session,
+        );
+
+  AuthenticationJwtToken.fromJson(Map<String, Object?> json)
+      : token = json['token'] as String,
+        super.fromJson(json);
+
+  @override
+  Map<String, Object?> toJson() {
+    final data = super.toJson();
+    data['token'] = token;
+    return data;
+  }
 }
