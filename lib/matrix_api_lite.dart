@@ -36,6 +36,7 @@ export 'src/model/auth/authentication_three_pid_creds.dart';
 export 'src/model/auth/authentication_token.dart';
 export 'src/model/auth/authentication_types.dart';
 export 'src/model/auth/authentication_user_identifier.dart';
+export 'src/model/auth/authentication_jwt_token.dart';
 export 'src/model/basic_event.dart';
 export 'src/model/basic_event_with_sender.dart';
 export 'src/model/basic_room_event.dart';
