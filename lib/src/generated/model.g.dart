@@ -333,7 +333,7 @@ extension LoginTypeEnhancedEnum on LoginType {
     required T Function() mLoginPassword,
     required T Function() mLoginToken,
     required T Function() mLoginJwtToken,
-    required T Function() mLoginJwtSso,
+    required T Function() mLoginSso,
   }) =>
       {
         LoginType.mLoginPassword: mLoginPassword,
